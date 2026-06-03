@@ -40,8 +40,7 @@ void mainMenu(){
         cout << "1. Lihat Daftar Penerbangan" << endl
             << "2. Pesan Tiket" << endl
             << "3. Kelola Pesanan" << endl
-            << "4. Laporan" << endl
-            << "5. Keluar" << endl
+            << "4. Keluar" << endl
             << "Pilih menu: "; cin >> pilihan;
 
             if(pilihan == 1){ lihatDaftarPenerbangan(); }
@@ -66,11 +65,10 @@ void login(){
             
         if(pilihan == 1){
             do {
+    
                 titleScreen("LOGIN ADMIN");
                 cout << "Masukkan nama Admin: "; cin >> admin_name;
                 cout << "Masukkan password: "; cin >> admin_pw;
-
-                stoi(admin_pw);
                 
                 if(admin_name == "admin" && admin_pw == "123"){
                     menuAdmin();
@@ -79,10 +77,13 @@ void login(){
                     chance++;
                 }
 
-                cout << "Kesempatan Habis" << endl;
+                cout << "Password Salah! Sisa kesempatan " << 3 - chance << endl;
+                pauseScreen("Tekan enter untuk melanjutkan");
+    
             } while(chance < 3);
         } else if (pilihan == 2) {
             do {
+    
                 titleScreen("LOGIN USER");
                 cout << "Masukkan nama User: "; cin >> user_name;
                 cout << "Masukkan password: "; cin >> user_pw;
@@ -94,7 +95,9 @@ void login(){
                     chance++;
                 }
 
-                cout << "Kesempatan Habis" << endl;
+                cout << "Password Salah! Sisa kesempatan " << 3 - chance << endl;
+                pauseScreen("Tekan enter untuk melanjutkan");
+    
             } while (chance < 3);
             
         }
