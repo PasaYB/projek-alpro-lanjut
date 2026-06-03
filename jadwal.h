@@ -13,11 +13,16 @@ struct Jadwal {
     std::string jamTiba;       // contoh: "09:30"
     int totalKursi;       // total kapasitas pesawat
     int kursiTerisi;      // sudah berapa yang dipesan
-    float hargaEkonomi;   // harga kelas ekonomi
-    float hargaBisnis;    // harga kelas bisnis
+    // float hargaEkonomi;   // harga kelas ekonomi (gua ubah jadi long long)
+    // float hargaBisnis;    // harga kelas bisnis (gua ubah jadi long long)
+    long long hargaEkonomi;   // harga kelas ekonomi
+    long long hargaBisnis;    // harga kelas bisnis
 
-    int sisaKursi(Jadwal f) {
-        return f.totalKursi - f.kursiTerisi;
+//    int sisaKursi(Jadwal f) {
+//        return f.totalKursi - f.kursiTerisi;
+//    }
+    int sisaKursi() {
+        return totalKursi - kursiTerisi;
     }
 };
 
