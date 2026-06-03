@@ -1,0 +1,10 @@
+-----------------------------------------------------------------
+BUKTI PEMESANAN TIKET PESAWAT
+-----------------------------------------------------------------
+Nama Penumpang : Fuad
+Maskapai       : Garuda Indonesia (GA-101)
+Rute           : Jakarta -> Bali
+Kelas          : Ekonomi
+Total Bayar    : Rp 850000
+-----------------------------------------------------------------
+

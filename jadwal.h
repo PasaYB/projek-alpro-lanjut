@@ -25,8 +25,8 @@ struct Jadwal {
     long hargaEkonomi;   // harga kelas ekonomi
     long hargaBisnis;    // harga kelas bisnis
 
-    int sisaKursi(Jadwal f) {
-        return f.totalKursi - f.kursiTerisi;
+    int sisaKursi(Jadwal j) {
+        return j.totalKursi - j.kursiTerisi;
     }
 };
 
