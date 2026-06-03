@@ -11,6 +11,7 @@ const int MAX_MASKAPAI = 100;
 int jumlahMaskapai = 5;
 int jumlahJadwal = 3;
 
+
 struct Jadwal {
     string kode;          // contoh: "GA-101"
     string maskapai;      // contoh: "Garuda Indonesia"
@@ -24,8 +25,8 @@ struct Jadwal {
     long hargaEkonomi;   // harga kelas ekonomi
     long hargaBisnis;    // harga kelas bisnis
 
-    int sisaKursi() {
-        return totalKursi - kursiTerisi;
+    int sisaKursi(Jadwal j) {
+        return j.totalKursi - j.kursiTerisi;
     }
 };
 
@@ -98,6 +99,7 @@ void tambahJadwal(Jadwal j[]){
     cout << sep2 << endl;
     cout << "Data berhasil ditambahkan." << endl;
 }
+// ====================================================================================
 
 // SHOW
 void lihatJadwal(Jadwal j[]){
@@ -121,6 +123,7 @@ void lihatJadwal(Jadwal j[]){
         << setw(12) << j[i].jamTiba << endl;
     };
 }
+// ====================================================================================
 
 // UPDATE 
 void editJadwal(Jadwal j[]){
@@ -137,10 +140,12 @@ void editJadwal(Jadwal j[]){
         }
     }
 
+    Jadwal &target = j[indexTarget];
+
+    
     if (indexTarget == -1) {
         cout << "Data dengan kode " << kode << " tidak ditemukan." << endl;
     } else {
-        Jadwal &target = j[indexTarget];
         do 
         {
             cout << "\n--- Data Saat Ini ---" << endl;
@@ -151,8 +156,8 @@ void editJadwal(Jadwal j[]){
             cout << "5. Tanggal      : " << target.tanggal << endl;
             cout << "6. Jam Berangkat: " << target.jamBerangkat << endl;
             cout << "7. Jam Tiba     : " << target.jamTiba << endl;
-            cout << "8. Harga Ekonomi: Rp." << target.hargaEkonomi << endl;
-            cout << "9. Harga Bisnis : Rp." << target.hargaBisnis << endl;
+            cout << "8. Harga Ekonomi: " << target.hargaEkonomi << endl;
+            cout << "9. Harga Bisnis : " << target.hargaBisnis << endl;
             cout << "0. Selesai" << endl;
             cout << "Pilih field yang ingin diubah: ";
             cin >> pilihan;
@@ -173,6 +178,7 @@ void editJadwal(Jadwal j[]){
         } while (pilihan != 0);
     }
 }
+// ====================================================================================
 
 // DELETE
 void hapusJadwal(Jadwal j[]){
@@ -199,8 +205,10 @@ void hapusJadwal(Jadwal j[]){
     
         jumlahJadwal--;
         cout << "Data berhasil dihapus." << endl;
+
     }
 }
+// ====================================================================================
 
 // SEARCH
 void cariJadwal(Jadwal j[]){
@@ -221,12 +229,12 @@ void cariJadwal(Jadwal j[]){
         cout << endl << sep2 << endl;
 
         cout << left 
-             << setw(20) << "Maskapai" 
-             << setw(10) << "Kode" 
-             << setw(15) << "Asal" 
-             << setw(15) << "Tujuan" 
-             << setw(15) << "Jam Berangkat" 
-             << setw(12) << "Jam Tiba" << endl;
+            << setw(20) << "Maskapai" 
+            << setw(10) << "Kode" 
+            << setw(15) << "Asal" 
+            << setw(15) << "Tujuan" 
+            << setw(15) << "Jam Berangkat" 
+            << setw(12) << "Jam Tiba" << endl;
 
         cout << left 
         << setw(20) << j[hasilSearch].maskapai 
@@ -238,5 +246,8 @@ void cariJadwal(Jadwal j[]){
     } else {
         cout << "Data tidak ditemukan!" << endl;
     }
+    
+
 }
+// ====================================================================================
 #endif
