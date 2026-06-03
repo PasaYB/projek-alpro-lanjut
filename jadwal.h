@@ -156,6 +156,12 @@ void editJadwal(Jadwal j[]){
             cout << "Pilih field yang ingin diubah: ";
             cin >> pilihan;
 
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout << "Input tidak valid! Harap masukkan angka." << endl;
+                continue;
+            }
             switch (pilihan) {
                 case 1: cout << "Kode baru: ";          cin >> target.kode; break;
                 case 2: cout << "Maskapai baru: ";       cin >> target.maskapai; break;
