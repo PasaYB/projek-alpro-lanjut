@@ -10,8 +10,14 @@ void clearScreen() {
     #endif
 }
 
+void pauseScreen(std::string text){
+    std::cout << "\n" << text << "...";
+    std::cin.ignore();
+    std::cin.get(); 
+}
+
 void titleScreen(std::string title){
-    // clearScreen();
+    clearScreen();
     std::cout << sep << std::endl;
     std::cout << "           " << title << std::endl;
     std::cout << sep << std::endl;

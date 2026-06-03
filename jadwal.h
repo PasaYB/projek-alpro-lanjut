@@ -98,6 +98,7 @@ void tambahJadwal(Jadwal j[]){
 
     cout << sep2 << endl;
     cout << "Data berhasil ditambahkan." << endl;
+    pauseScreen("Tekan enter untuk kembali ke menu utama");
 }
 // ====================================================================================
 
@@ -122,6 +123,8 @@ void lihatJadwal(Jadwal j[]){
         << setw(15) << j[i].jamBerangkat 
         << setw(12) << j[i].jamTiba << endl;
     };
+
+    pauseScreen("Tekan enter untuk kembali ke menu utama");
 }
 // ====================================================================================
 
@@ -177,6 +180,8 @@ void editJadwal(Jadwal j[]){
             }
         } while (pilihan != 0);
     }
+    
+    pauseScreen("Tekan enter untuk kembali ke menu utama");
 }
 // ====================================================================================
 
@@ -207,6 +212,8 @@ void hapusJadwal(Jadwal j[]){
         cout << "Data berhasil dihapus." << endl;
 
     }
+
+    pauseScreen("Tekan enter untuk kembali ke menu utama");
 }
 // ====================================================================================
 
@@ -214,7 +221,7 @@ void hapusJadwal(Jadwal j[]){
 void cariJadwal(Jadwal j[]){
     string kode;
     int hasilSearch = -1;
-    
+
     titleScreen("CARI DATA PENERBANGAN");
     cout << "Masukkan kode penerbangan: "; cin >> kode;
 
@@ -246,8 +253,8 @@ void cariJadwal(Jadwal j[]){
     } else {
         cout << "Data tidak ditemukan!" << endl;
     }
-    
 
+    pauseScreen("Tekan enter untuk kembali ke menu utama");
 }
 // ====================================================================================
 #endif

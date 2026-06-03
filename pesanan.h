@@ -51,6 +51,7 @@ void pesanTiket(Jadwal j[]) {
 
     if (index == -1) {
         cout << "Penerbangan dengan kode " << inputKode << " tidak ditemukan!\n";
+        pauseScreen("Tekan Enter untuk kembali ke menu utama");
         return;
     }
 
@@ -58,6 +59,7 @@ void pesanTiket(Jadwal j[]) {
 
     if (sisa <= 0) {
         cout << "Mohon maaf, kursi untuk penerbangan ini sudah penuh!\n";
+        pauseScreen("Tekan Enter untuk kembali ke menu utama");
         return;
     }
 
@@ -128,6 +130,8 @@ void pesanTiket(Jadwal j[]) {
     } else {
         cout << "Pemesanan dibatalkan.\n";
     }
+
+    pauseScreen("Tekan Enter untuk kembali ke menu utama");
 }
 
 void lihatDaftarPenerbangan() {
@@ -169,9 +173,7 @@ void lihatDaftarPenerbangan() {
     }
     cout << sep2 << endl;
     
-    cout << "\nTekan Enter untuk kembali ke menu utama...";
-    cin.ignore();
-    cin.get(); 
+    pauseScreen("Tekan Enter untuk kembali ke menu utama");
 }
 
 void laporanPesanan() {
@@ -190,9 +192,7 @@ void laporanPesanan() {
         cout << "Belum ada riwayat tiket yang dipesan.\n";
     }
 
-    cout << "\nTekan Enter untuk kembali ke menu utama...";
-    cin.ignore();
-    cin.get();
+    pauseScreen("Tekan Enter untuk kembali ke menu utama");
 }
 
 #endif
