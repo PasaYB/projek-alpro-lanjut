@@ -30,7 +30,7 @@ struct Jadwal {
 };
 
 Jadwal j[MAX_MASKAPAI] = {
-    // DUMMY DATA MILIK TEMANMU
+    // DUMMY
     {"GA-101", "Garuda Indonesia", "Jakarta", "Bali", "2025-06-10", "08:00", "09:30", 180, 45, 850000, 2100000},
     {"JT-202", "Lion Air", "Surabaya", "Makassar", "2025-06-11", "13:00", "15:10", 210, 120, 620000, 1500000},
     {"QG-303", "Citilink", "Yogyakarta", "Medan", "2025-06-12", "06:30", "09:00", 156, 0, 780000, 1800000}
@@ -88,6 +88,7 @@ void tambahJadwal(Jadwal j[]){
     
     cout << sep2 << endl;
     cout << "Masukkan total kursi: "; cin >> j[jumlahJadwal].totalKursi;
+    j[jumlahJadwal].kursiTerisi = 0;
     
     cout << sep2 << endl;
     cout << "Masukkan harga Ekonomi: Rp."; cin >> j[jumlahJadwal].hargaEkonomi;
@@ -156,12 +157,6 @@ void editJadwal(Jadwal j[]){
             cout << "Pilih field yang ingin diubah: ";
             cin >> pilihan;
 
-            if (cin.fail()) {
-                cin.clear();
-                cin.ignore(10000, '\n');
-                cout << "Input tidak valid! Harap masukkan angka." << endl;
-                continue;
-            }
             switch (pilihan) {
                 case 1: cout << "Kode baru: ";          cin >> target.kode; break;
                 case 2: cout << "Maskapai baru: ";       cin >> target.maskapai; break;
