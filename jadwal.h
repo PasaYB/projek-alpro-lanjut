@@ -33,7 +33,7 @@ struct Jadwal {
 Jadwal j[MAX_MASKAPAI] = {
     // DUMMY
     {"GA-101", "Garuda Indonesia", "Jakarta", "Bali", "2025-06-10", "08:00", "09:30", 180, 45, 850000, 2100000},
-    {"JT-202", "Lion Air", "Surabaya", "Makassar", "2025-06-11", "13:00", "15:10", 210, 120, 620000, 1500000},
+    {"JT-202", "Lion Air", "Surabaya", "Makassar", "2025-06-11", "13:00", "15:10", 210, 0, 620000, 1500000},
     {"QG-303", "Citilink", "Yogyakarta", "Medan", "2025-06-12", "06:30", "09:00", 156, 0, 780000, 1800000}
 };
 
@@ -75,8 +75,24 @@ void tambahJadwal(Jadwal j[]){
     } else {
         j[jumlahJadwal].maskapai = daftarMaskapai[pilihanMaskapai-1].nama;
     }
+    
+    bool isUnix;
+    do{
+        isUnix = true;
 
-    cout << "Masukkan kode: "; cin >> kode; j[jumlahJadwal].kode = daftarMaskapai[pilihanMaskapai-1].kode + "-" +  kode;
+        cout << "Masukkan kode: "; cin >> kode; 
+        string c = j[jumlahJadwal].kode = daftarMaskapai[pilihanMaskapai-1].kode + "-" +  kode;
+        for (int i = 0; i < jumlahJadwal; i++)
+        {
+            if(j[i].kode == c){
+                isUnix = false;
+                break;
+            }
+        }
+        
+        if(!isUnix) cout << "Kode duplikat!" << endl;
+
+    }while(!isUnix);
     
     cout << sep2 << endl;
     cout << "Masukkan asal: "; cin >> j[jumlahJadwal].asal;
@@ -166,8 +182,8 @@ void editJadwal(Jadwal j[]){
             cin >> pilihan;
 
             switch (pilihan) {
-                case 1: cout << "Kode baru: ";          cin >> target.kode; break;
-                case 2: cout << "Maskapai baru: ";       cin >> target.maskapai; break;
+                case 1: cout << "Field tidak untuk diubah!" << endl; break;
+                case 2: cout << "Field tidak untuk diubah!"; break;
                 case 3: cout << "Asal baru: ";           cin >> target.asal; break;
                 case 4: cout << "Tujuan baru: ";         cin >> target.tujuan; break;
                 case 5: cout << "Tanggal baru: ";        cin >> target.tanggal; break;
